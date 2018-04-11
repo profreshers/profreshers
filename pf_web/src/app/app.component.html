@@ -1,52 +1,61 @@
-<div class='container text-justify'>
-	<div style="text-align:center">
-		<h1>
-			Welcome to {{ title }}!
-		</h1>
-	</div>
-
-	<div class="col-lg-3">
-		<div class="panel panel-default col-lg-12">
-			<h4>Appendix</h4>
-			<span class='label label-success'>Verified</span> Job listing has been verified by the admin
-			<br><br>
-			<span class='label label-warning'>Not verified</span>Job listing is not yet verified by the admin
-		</div>
-		<div class="dropdown">
-			filters
-		</div>
-	</div>
-	<div class="col-lg-9">
-		<div class="panel panel-success" *ngFor="let job of jobs">
-			<div class="panel-heading">
-				<h2 class="panel-title">
-					<b>{{job.title}} | {{job.companyName}} | {{job.experience}} years</b>
-					<span class='label' [ngClass]="{'label-success': job.verified, 'label-warning': !job.verified}">
-						<span *ngIf='job.verified'>Verified</span>
-						<span *ngIf='!job.verified'>Not verified</span>
-					</span>
-				</h2>
-			</div>
-			<div class="panel-body">
-				<div class="col-lg-6">
-					<div class="panel-body">
-						<ul class="list-group">
-							<li class="list-group-item">
-								<b>Designation </b>{{job.designation}}</li>
-							<li class="list-group-item">
-								<b>Salary </b>{{job.ctc}}</li>
-							<li class="list-group-item">
-								<b>Location </b>{{job.location}}</li>
-							<li class="list-group-item">
-								<b>Skills </b>{{job.skills}}</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<h4>Job description</h4>
-					{{job.description}}
-				</div>
-			</div>
-		</div>
-	</div>
+<div>
+  <!-- Fixed navbar -->
+  <nav class="navbar navbar-default navbar-fixed-top">
+    <div class="container">
+      <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
+          aria-controls="navbar">
+          <span class="sr-only">Toggle navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="#">Project name</a>
+      </div>
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav">
+          <li class="active">
+            <a href="#">Home</a>
+          </li>
+          <li>
+            <a routerLink="jobs">Jobs</a>
+          </li>
+          <li>
+            <a routerLink="recruiter">Recruiter</a>
+          </li>
+          <li>
+            <a routerLink="recruitment_process">Recruitment process</a>
+          </li>
+          <li>
+            <a routerLink="add_job">Add a job</a>
+          </li>
+          <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown
+              <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+              <li>
+                <a href="#jobs">Jobs</a>
+              </li>
+              <li>
+                <a href="#">Another action</a>
+              </li>
+              <li>
+                <a href="#">Something else here</a>
+              </li>
+              <li role="separator" class="divider"></li>
+              <li class="dropdown-header">Nav header</li>
+              <li>
+                <a href="#">Separated link</a>
+              </li>
+              <li>
+                <a href="#">One more separated link</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <router-outlet></router-outlet>
 </div>
