@@ -1,28 +1,28 @@
-<div class='container text-justify'>
-	<div style="text-align:center">
+<div>
+	<div>
 		<h1>
 			Welcome to {{ title }}!
 		</h1>
 	</div>
 
-	
 	<div class="col-lg-3">
 		<div class="panel panel-default col-lg-12">
 			<h4>Appendix</h4>
 			<span class='label label-success'>Verified</span> Job listing has been verified by the admin
-			<br><br>
+			<br>
+			<br>
 			<span class='label label-warning'>Not verified</span>Job listing is not yet verified by the admin
 		</div>
 		<div class="dropdown">
 			filters
 		</div>
-		
+
 	</div>
 	<div class="col-lg-9">
 		<div class="panel panel-success" *ngFor="let job of jobs">
 			<div class="panel-heading">
 				<h2 class="panel-title">
-					<b>{{job.title}} | {{job.companyName}} | {{job.experience}} years</b>
+					<b>{{job.title}} | {{job.companyName}}| {{job.experience}} years</b>
 					<span class='label' [ngClass]="{'label-success': job.verified, 'label-warning': !job.verified}">
 						<span *ngIf='job.verified'>Verified</span>
 						<span *ngIf='!job.verified'>Not verified</span>

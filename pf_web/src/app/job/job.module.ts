@@ -2,12 +2,13 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { JobComponent } from './job/job.component';
 import { AddJobComponent } from './add-job/add-job.component';
+import { JobDetailComponent } from './job-detail/job-detail.component';
 
 @NgModule({
   imports: [
     CommonModule
   ],
-  declarations: [JobComponent, AddJobComponent]
+  declarations: [JobComponent, AddJobComponent, JobDetailComponent]
 })
 export class JobModule {
   title = 'Pro-Freshers!';
