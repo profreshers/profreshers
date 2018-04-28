@@ -1,11 +1,45 @@
+<style>
+	.pf-card{
+		background-color: #70a1e5;
+	}
+	.pf-header-card{
+		background-color: #7c70e5;
+	}
+</style>
 <div>
-	<div>
-		<h1>
-			Welcome to {{ title }}!
-		</h1>
+	<!-- Example row of columns -->
+	<div class="row">
+
+		<div class="col-lg-4" *ngFor="let job of jobs">
+			<div class="card">
+				<div class="card-body">
+					<div class="card pf-header-card col-lg-12">
+						<h3>{{job.title}}</h3>
+						<p>{{job.companyName}}</p>
+						<p>{{job.experience}} years</p>
+					</div>
+					<div class="card pf-card col-lg-12">
+						<p>
+							<b>Designation </b>{{job.designation}}</p>
+						<p>
+							<b>Salary </b>{{job.ctc}}</p>
+						<p>
+							<b>Location </b>{{job.location}}</p>
+						<p>
+							<b>Skills </b>{{job.skills}}</p>
+						<p>
+							<b>Job description</b>{{job.description}}</p>
+						<p>
+							<a class="btn btn-secondary" href="https://getbootstrap.com/docs/4.1/examples/jumbotron/#" role="button">View details »</a>
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
 	</div>
 
-	<div class="col-lg-3">
+
+	<!-- <div class="col-lg-3">
 		<div class="panel panel-default col-lg-12">
 			<h4>Appendix</h4>
 			<span class='label label-success'>Verified</span> Job listing has been verified by the admin
@@ -16,39 +50,5 @@
 		<div class="dropdown">
 			filters
 		</div>
-
-	</div>
-	<div class="col-lg-9">
-		<div class="panel panel-success" *ngFor="let job of jobs">
-			<div class="panel-heading">
-				<h2 class="panel-title">
-					<b>{{job.title}} | {{job.companyName}}| {{job.experience}} years</b>
-					<span class='label' [ngClass]="{'label-success': job.verified, 'label-warning': !job.verified}">
-						<span *ngIf='job.verified'>Verified</span>
-						<span *ngIf='!job.verified'>Not verified</span>
-					</span>
-				</h2>
-			</div>
-			<div class="panel-body">
-				<div class="col-lg-6">
-					<div class="panel-body">
-						<ul class="list-group">
-							<li class="list-group-item">
-								<b>Designation </b>{{job.designation}}</li>
-							<li class="list-group-item">
-								<b>Salary </b>{{job.ctc}}</li>
-							<li class="list-group-item">
-								<b>Location </b>{{job.location}}</li>
-							<li class="list-group-item">
-								<b>Skills </b>{{job.skills}}</li>
-						</ul>
-					</div>
-				</div>
-				<div class="col-lg-6">
-					<h4>Job description</h4>
-					{{job.description}}
-				</div>
-			</div>
-		</div>
-	</div>
+	</div> -->
 </div>

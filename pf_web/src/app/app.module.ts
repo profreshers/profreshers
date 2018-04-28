@@ -5,10 +5,15 @@ import { AppComponent } from './app.component';
 import { AppRoutingModule } from './/app-routing.module';
 import { JobModule } from './job/job.module';
 import { RecruiterModule } from './recruiter/recruiter.module';
+import { JobComponent } from './job/job/job.component';
+import { AboutComponent } from './about/about.component';
+import { JobsService } from './job/jobs.service';
 
 @NgModule({
   declarations: [
     AppComponent,
+    JobComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,
@@ -16,7 +21,7 @@ import { RecruiterModule } from './recruiter/recruiter.module';
     JobModule,
     RecruiterModule
   ],
-  providers: [],
+  providers: [JobsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

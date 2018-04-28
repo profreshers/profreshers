@@ -1,18 +1,10 @@
-import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
-import { JobComponent } from './job/job.component';
-import { AddJobComponent } from './add-job/add-job.component';
-import { JobDetailComponent } from './job-detail/job-detail.component';
+import { Injectable } from '@angular/core';
 
-@NgModule({
-  imports: [
-    CommonModule
-  ],
-  declarations: [AddJobComponent, JobDetailComponent]
-})
-export class JobModule {
-  title = 'Pro-Freshers!';
+@Injectable()
+export class JobsService {
+
   jobs = [{
+    "id": 1,
     "title": "Android developer",
     "designation": "Software Engineer",
     "companyName": "Persistent Systems Ltd.",
@@ -23,6 +15,7 @@ export class JobModule {
     "skills": "Android, Java",
     "verified": false
   }, {
+    "id": 2,
     "title": "Java Developer",
     "designation": "Software Engineer Trainee",
     "companyName": "NetCracker Technologies Ltd.",
@@ -33,7 +26,8 @@ export class JobModule {
     "skills": "Java, JSP, SQL",
     "verified": true
   }, {
-    "title": "Data Scientish",
+    "id": 3,
+    "title": "Data Scientist",
     "designation": "Software Analyst Trainee",
     "companyName": "Big Basket",
     "experience": "0",
@@ -42,15 +36,14 @@ export class JobModule {
     "location": "Bengaluru",
     "skills": "Java, JSP, SQL",
     "verified": false
-  }, {
-    "title": "Angular Developer",
-    "designation": "Software Engineer Trainee",
-    "companyName": "Mindtree Ltd.",
-    "experience": "0-2",
-    "ctc": "2.8 LPA",
-    "description": "description1",
-    "location": "Bengaluru",
-    "skills": "Java, JSP, SQL",
-    "verified": true
   }]
+  constructor() { }
+
+  getJobs(){
+    return this.jobs;
+  }
+
+  setJobs(filteredJobs: any){
+    this.jobs = filteredJobs;
+  }
 }
