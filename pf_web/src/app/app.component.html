@@ -1,18 +1,25 @@
-<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-  <a class="navbar-brand" href="https://getbootstrap.com/docs/4.1/examples/jumbotron/#">Pro-freshers</a>
+<style>
+  .pf-navbar {
+    background-color: #012b72;
+    color: white;
+    font-size: x-large;
+  }
+</style>
+<nav class="navbar pf-navbar navbar-expand-md navbar-dark fixed-top">
+  <h1>
+    <a class="pf-navbar navbar-brand" href="#" style="font-size: xx-large;">Pro-freshers</a>
+  </h1>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault"
     aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
 
   <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-    <ul class="navbar-nav mr-auto">
+    <ul class="offset-lg-8 navbar-nav mr-auto">
       <li class="nav-item active">
-        <a class="nav-link" href="https://getbootstrap.com/docs/4.1/examples/jumbotron/#">Home
+        <a class="nav-link" routerLink="/jobs">Home
           <span class="sr-only">(current)</span>
         </a>
-
-
       </li>
       <li class="nav-item">
         <a class="nav-link" routerLink="jobs">Jobs</a>
@@ -20,7 +27,7 @@
       <li class="nav-item">
         <a class="nav-link" routerLink="about">About Us</a>
       </li>
-      <li class="nav-item dropdown">
+      <!-- <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="dropdown01" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Jobs by skills</a>
         <div class="dropdown-menu" aria-labelledby="dropdown01">
           <a class="dropdown-item" (click)="filterJobs('java')" routerLink="jobs/java">Java</a>
@@ -28,71 +35,19 @@
           <a class="dropdown-item" (click)="filterJobs('cSharp')" routerLink="jobs/cSharp">C sharp / .Net</a>
           <a class="dropdown-item" (click)="filterJobs('android')" routerLink="jobs/android">Android</a>
         </div>
-      </li>
+      </li> -->
     </ul>
   </div>
 </nav>
 
 <main role="main">
-
-  <!-- Main jumbotron for a primary marketing message or call to action -->
-  <div class="jumbotron" style="background-image: url('../assets/img/img.jpg')">
-    <div class="container">
-      <h1 class="display-3">Hello, Welcome to
-        <b>pro-freshers</b>!</h1>
-      <p>Your one stop solution for job search.</p>
-      <div class="row">
-        <div class="col-lg-8 offset-lg-2">
-          <form>
-            <div class="input-group">
-              <input type="text" class="form-control" placeholder="Enter a skill">
-              <span class="input-group-btn">
-                <button class="btn btn-default" (click)='filterJobsBySearchParam()' type="button">Search!</button>
-              </span>
-            </div>
-          </form>
-        </div>
-      </div>
-
-      <p>
-        <a class="btn btn-primary btn-lg" href="https://getbootstrap.com/docs/4.1/examples/jumbotron/#" role="button">Know more »</a>
-      </p>
-    </div>
-  </div>
-
   <div class="container-fluid">
-    <div class="col-lg-3" *ngFor="let job of jobs">
-      <div class="">
-        <div>
-          <ul class="list-group">
-            <li class="list-group-item">
-              <h3>{{job.title}}
-                <small>{{job.companyName}}</small>
-              </h3>
-            </li>
-            <li class="list-group-item">{{job.experience}} years</li>
-            <li class="list-group-item">
-              <b>Designation </b>{{job.designation}}</li>
-            <li class="list-group-item">
-              <b>Salary </b>{{job.ctc}}</li>
-            <li class="list-group-item">
-              <b>Location </b>{{job.location}}</li>
-            <li class="list-group-item">
-              <b>Skills </b>{{job.skills}}</li>
-            <li class="list-group-item">
-              <b>Job description</b>{{job.description}}</li>
-          </ul>
-        </div>
-
-      </div>
-      <p>
-        <a class="btn btn-secondary" href="https://getbootstrap.com/docs/4.1/examples/jumbotron/#" role="button">View details »</a>
-      </p>
+    <div style="padding-top: 3%">
+      <router-outlet></router-outlet>
     </div>
-    <router-outlet></router-outlet>
     <!-- START THE FEATURETTES -->
 
-    <hr class="featurette-divider">
+    <!-- <hr class="featurette-divider">
 
     <div class="row featurette">
       <div class="col-md-7">
@@ -143,7 +98,7 @@
       </div>
     </div>
 
-    <hr class="featurette-divider">
+    <hr class="featurette-divider"> -->
 
     <!-- /END THE FEATURETTES -->
 
@@ -153,6 +108,8 @@
 
 </main>
 
-<footer class="container">
-  <p>© Pro-freshers 2017-2018</p>
+<footer class="footer">
+  <div class="container">
+    <span>© Pro-freshers 2017-2018</span>
+  </div>
 </footer>

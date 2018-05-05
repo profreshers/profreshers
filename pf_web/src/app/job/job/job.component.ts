@@ -9,7 +9,11 @@ import { JobsService } from '../jobs.service';
 })
 export class JobComponent implements OnInit {
 
+  searchParam: string;
   showPopup: boolean = false;
+  jobs: any;
+  title = 'Pro-Freshers!';
+
   constructor(private router: Router, private route: ActivatedRoute, private service: JobsService) { }
   setShowPopup() {
     this.showPopup = true;
@@ -24,8 +28,15 @@ export class JobComponent implements OnInit {
     this.jobs = this.service.getJobs();
   }
 
-   title = 'Pro-Freshers!';
-  
-   jobs: any;
+  getJobsBySearchParam() {
+    this.service.getJobsBySearchParam(this.searchParam).subscribe(
+      response => {
+        this.jobs = response;
+      }
+    );
+  }
+
+
+
 
 }

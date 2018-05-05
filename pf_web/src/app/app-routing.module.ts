@@ -5,6 +5,7 @@ import { RecruiterComponent } from './recruiter/recruiter/recruiter.component';
 import { RecruitmentProcessComponent } from './recruiter/recruitment-process/recruitment-process.component';
 import { AddJobComponent } from './job/add-job/add-job.component';
 import { AboutComponent } from './about/about.component';
+import { JobDetailComponent } from './job/job-detail/job-detail.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'jobs', pathMatch: 'full' },
@@ -13,7 +14,8 @@ const routes: Routes = [
   { path: 'recruitment_process', component: RecruitmentProcessComponent },
   { path: 'add_job', component: AddJobComponent },
   { path: 'about', component: AboutComponent },
-  { path: 'jobs/:skill', component: JobComponent }
+  { path: 'jobs/:skill', component: JobComponent },
+  { path: 'job-detail/:jobId', component: JobDetailComponent }
 ];
 
 @NgModule({

@@ -1,24 +1,48 @@
 <style>
-	.pf-card{
+	.pf-card {
 		background-color: #70a1e5;
 	}
-	.pf-header-card{
-		background-color: #7c70e5;
+
+	.pf-header-card {
+		background-color: #7e9df0;
+		color: black;
 	}
 </style>
 <div>
-	<!-- Example row of columns -->
-	<div class="row">
+	<!-- Main jumbotron for a primary marketing message or call to action -->
+	<div class="jumbotron">
+		<div class="container">
+			<h1 class="display-3 text-center">Welcome to
+				<b>Pro-Freshers</b>!</h1>
+			<div class="row">
+				<div class="col-lg-8 offset-lg-2">
+					<form>
+						<div class="input-group">
+							<input name='searchParam' [(ngModel)] = 'searchParam' type="text" class="form-control" placeholder="Enter a skill to find the relevant jobs">
+							<span class="input-group-btn">
+								<button type="submit" class="btn btn-default" (click)='getJobsBySearchParam()' type="button">Search!</button>
+							</span>
+						</div>
+					</form>
+				</div>
+			</div>
 
+			<!-- <p>
+        <a class="btn btn-primary btn-lg" href="#" role="button">Know more »</a>
+      </p> -->
+		</div>
+	</div>
+	<div class="row">
 		<div class="col-lg-4" *ngFor="let job of jobs">
 			<div class="card">
 				<div class="card-body">
 					<div class="card pf-header-card col-lg-12">
 						<h3>{{job.title}}</h3>
 						<p>{{job.companyName}}</p>
-						<p>{{job.experience}} years</p>
 					</div>
 					<div class="card pf-card col-lg-12">
+						<p>
+							<b>Experience</b>{{job.experience}} years</p>
 						<p>
 							<b>Designation </b>{{job.designation}}</p>
 						<p>
@@ -30,7 +54,7 @@
 						<p>
 							<b>Job description</b>{{job.description}}</p>
 						<p>
-							<a class="btn btn-secondary" href="https://getbootstrap.com/docs/4.1/examples/jumbotron/#" role="button">View details »</a>
+							<a class="btn btn-secondary" routerLink='/job-detail/{{job.id}}' role="button">View details »</a>
 						</p>
 					</div>
 				</div>

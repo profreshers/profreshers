@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
-
+import { of } from "rxjs/observable/of";
+import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class JobsService {
 
-  jobs = [{
+  jobsListMaster = [{
     "id": 1,
     "title": "Android developer",
     "designation": "Software Engineer",
@@ -36,14 +37,28 @@ export class JobsService {
     "location": "Bengaluru",
     "skills": "Java, JSP, SQL",
     "verified": false
-  }]
+  }];
+
+  jobs: any;
   constructor() { }
 
-  getJobs(){
+  getJobs() {
+    this.jobs = Object.assign(this.jobsListMaster);
     return this.jobs;
   }
 
-  setJobs(filteredJobs: any){
+  setJobs(filteredJobs: any) {
     this.jobs = filteredJobs;
+  }
+
+  getJobById(id: string): Observable<any> {
+    let filteredJobs = this.jobs.filter(job => job.id == id);
+    console.log(filteredJobs)
+    return of(filteredJobs[0]);
+  }
+
+  getJobsBySearchParam(searchParam: string): Observable<any>{
+    let filteredJobs = this.jobs.filter(job => job.skills.toUpperCase().includes(searchParam.toUpperCase())); 
+    return of(filteredJobs);
   }
 }
